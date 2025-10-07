@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inkview Academy – Enroll Now</title>
+  <style>
+    /* ===== General Page Style ===== */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6a00f4, #00e0ff);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* ===== Logo Animation ===== */
+    .logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+      color: #6a00f4;
+      font-weight: bold;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ===== About Section ===== */
+    .about {
+      text-align: center;
+      max-width: 500px;
+      margin-bottom: 25px;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Form Style ===== */
+    form {
+      background: white;
+      color: #333;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      animation: slideUp 1.5s ease-in-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    button {
+      background: #6a00f4;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00e0ff;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #6a00f4;
+    }
+
+    .price-list {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 20px;
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Logo -->
+  <div class="logo">IA</div>
+
+  <!-- About Section -->
+  <div class="about">
+    <h3>Welcome to Inkview Academy</h3>
+    <p>
+      We inspire young minds through Coding, Science, and Technology.
+      Join our weekend home tutoring program to build strong foundations in
+      Mathematics, Physics, Chemistry, Biology, and more!
+    </p>
+  </div>
+
+  <!-- Enrollment Form -->
+  <form id="enrollForm">
+    <h2>Enroll Now</h2>
+    <input type="text" id="name" placeholder="Full Name of Student" required>
+    <input type="text" id="level" placeholder="Class / Level (e.g. JSS2)" required>
+    <select id="subject" required>
+      <option value="">Select Subject</option>
+      <option value="Coding">Coding</option>
+      <option value="Mathematics">Mathematics</option>
+      <option value="Physics">Physics</option>
+      <option value="Chemistry">Chemistry</option>
+      <option value="Biology">Biology</option>
+      <option value="Further Maths">Further Maths</option>
+    </select>
+    <input type="text" id="contact" placeholder="Parent Phone Number" required>
+    <button type="submit">📩 Enroll via WhatsApp</button>
+
+    <div class="price-list">
+      <strong>Lesson Fee (per subject)</strong><br>
+      Mathematics – ₦4,000 / Month<br>
+      Physics – ₦4,000 / Month<br>
+      Chemistry – ₦4,000 / Month<br>
+      Biology – ₦4,000 / Month<br>
+      Further Maths – ₦4,000 / Month<br>
+      Coding (Basic) – ₦6,000 / Month
+    </div>
+  </form>
+
+  <script>
+    document.getElementById("enrollForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Get form data
+      const name = document.getElementById("name").value;
+      const level = document.getElementById("level").value;
+      const subject = document.getElementById("subject").value;
+      const contact = document.getElementById("contact").value;
+
+      // WhatsApp number (replace with yours)
+      const whatsappNumber = "2349129818875"; // Replace with your number in international format
+
+      // Create message
+      const message = `Hello Inkview Academy! 👋%0A%0AI want to enroll my child for tutoring:%0A%0A👤 Student Name: ${name}%0A🏫 Level: ${level}%0A📘 Subject: ${subject}%0A📞 Parent Contact: ${contact}%0A%0AThank you.`;
+
+      // Redirect to WhatsApp
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+    });
+  </script>
+</body>
+</html>
